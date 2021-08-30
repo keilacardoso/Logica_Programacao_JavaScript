@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Lógica com JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<style>
+    #box1,
+    #box2,
+    #box3,
+    #box4 {
+        width: 300px;
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .alerta {
+        color: rgb(209, 24, 24);
+    }
+
+    .sucesso {
+        color: rgb(84, 226, 19);
+    }
+</style>
+
+<body>
+    <div>
+        <a href="aula01.html"> Aula 1 </a> |
+        <a href="aula02.html"> Aula 2 </a> 
+    </div>
+    <p>Aulas de Lógica com JavaScript - Funções e Parâmetros</p>
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3">
+        <ul></ul>
+    </div>
+    <div id="box4">
+        <ul></ul>
+    </div>
+
+    <button id="btConfirma">Confirmar</button>
+
+    <script>
+        
+        let estoque, vendas, novoEstoque; //variáveis
+
+        //atribuindo valor
+        estoque = 200;
+        novoEstoque = 250;
+
+        //Função simples
+        function soma() {
+            novoEstoque += 100;
+        }
+        soma();
+        console.log(novoEstoque); //350 - depois de executar a função
+
+        //Função com retorno
+        function comissao() {
+            var taxa = 1.2;
+            return taxa; //retorna a taxa
+        }
+        console.log(comissao());
+
+        //Função com parâmentro
+        function divisao(a, b) {
+            return a / b;
+        }
+        console.log(divisao(10, 5));
+
+        //exibindo função na tela
+        let box1 = document.querySelector("#box1");
+        box1.innerHTML = divisao(10, 5);
+
+        //controle de evento com click
+        let btConfirma = document.querySelector("#btConfirma");
+        btConfirma.onclick = function () {
+            box1.innerHTML = divisao(184, 3);
+            sorteiaPessoa();
+        }
+
+        //sorteando números
+        console.log(parseInt(Math.random() * 10) + 1);
+
+        //consumindo array por sorteio
+        function sorteiaPessoa() {
+            sorteio = parseInt(Math.random() * 5);
+            box2.innerHTML = funcinarios[sorteio];
+        }
+
+        let funcinarios, sorteio, box2; //criando variáveis
+
+        funcinarios = ["Ernesto", "Joaquim", "Renata", "Luciana", "Gabriel"];
+        box2 = document.querySelector("#box2");
+
+        //sorteio imediato
+        sorteiaPessoa();
+
+        //Iteradores
+
+        //while (enquanto)
+        let n = -1;
+
+        while (n < funcinarios.length - 1) {
+            n++; //incremento - adiciona +1 ao valor da variável
+            console.log(funcinarios[n]);
+            box2.innerHTML += "<p>" + funcinarios[n] + "</p>";
+        }
+
+        //for
+        let passeios = [
+            ["França", "Arco do Triunfo"], //array bi dimensional
+            ["Escócia", "Logo Ness"],
+            ["Inglaterra", "Roda Gigante"],
+            ["Jabaquara", "Espetinho"],
+            ["Barretos", "Festa"],
+            ["Praia Grande", "Arrastão"]];
+
+        let lista = document.querySelector("#box3 ul");
+        let mensagem = "";
+        //consumindo o array com for
+
+        for (var i = 0; i < passeios.length; i++) { //variável; condição; incremento
+            console.log(passeios[i][1]);
+
+            //usa a lista dentro do laço
+            mensagem += "<li><b>" + passeios[i][0] + " </b> tem " + passeios[i][1] + "</li>";
+            lista.innerHTML = mensagem; //imprime na tela a lista
+        }
+        console.log(15 % 4); //mod - resto da divisão
+
+        //for each
+        let numeros = [12, 34, 55, 49, 121, 4, 156, 7, 329, 500];
+        let box4 = document.querySelector("#box4 ul");
+        let verificaImparPar = "";
+
+        for (var i = 0; i < numeros.length; i++) { //var é uma variável local, portanto pode ser usada mais de uma vez no código
+
+            if (numeros[i] % 2 == 0) {  //verifica se o resto da divisão é zero
+                verificaImparPar = numeros[i] + " é par";
+            } else {
+                verificaImparPar = numeros[i] + " é impar";
+            }
+            box4.innerHTML += "<li>" + verificaImparPar + "</li>"; //imprime na tela a lista e a verificação
+
+
+        }
+    </script>
+
+</body>
+
+</html>

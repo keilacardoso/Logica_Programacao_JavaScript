@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lógica com JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<style>
+    #box1,
+    #box2 {
+        width: 300px;
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .alerta {
+        background-color: red;
+        color: white;
+    }
+
+    .bemVindo {
+        background-color: green;
+        color: white;
+    }
+</style>
+
+<body>
+    <div>
+        <a href="aula01.html"> Aula 1 </a> |
+        <a href="aula02.html"> Aula 2 </a> 
+    </div>
+    <p>Aulas de Lógica com JavaScript</p>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <script>
+        
+        //declarando uma variável
+        var nome, estoque, pacote, inicio, passeios, mensagem;
+
+        //atribuindo valor
+        nome = "Albert Einstein";
+        estoque = 140;
+        pacote = "20";
+        inicio = false;
+
+        //criando um array
+        passeios = new Array("Curitiba", "Rio de Janeiro", "Floripa");
+
+        //verificar o valor no console
+        console.log(nome);
+        console.log(estoque);
+
+        //retorna o tipo da variável no console
+        console.log(typeof (nome));
+        console.log(typeof (estoque));
+        console.log(typeof (passeios));
+
+        //realizando uma soma
+        console.log(estoque + parseInt("20"));
+        console.log(estoque + parseInt(pacote));
+
+        //concatenar 
+        console.log("A variável inicio é do tipo: " + typeof (inicio));
+
+        //extraindo uma posição do array
+        console.log(passeios[0]);
+        console.log(passeios[1]);
+
+        //retornando array no console
+        console.log(passeios);
+        mensagem = "Eu fui até " + passeios[0] + " e depois a " + passeios[2];
+        console.log(mensagem);
+
+        //Acessando um elemento HMTL
+        let box1 = document.querySelector("#box1");   //cria uma variavel
+
+        let salario = 10000; //atribui valor
+        let aumento = 1.1;
+        let funcionario = "Carlos";
+
+        console.log(box1); //exibe no console
+
+        //calculando salario
+        let novoSalario = salario * aumento;
+
+        //imprimindo na tela
+        box1.innerHTML = "<p>" + funcionario + " recebe: R$ " + salario + ",00 mensais</p>";
+        box1.innerHTML += "<p> Ele teve um aumento e agora receberá R$ " + novoSalario + ",00</p>";
+
+        //Condicionais
+        let nivel;
+        let box2 = document.querySelector("#box2");
+
+        //atribuindo valor
+        nivel = 1;
+
+        if (nivel == 1) {
+            alert("Administrador");
+        } else if (nivel == 2) {
+            alert("Editor");
+
+        } else if (nivel == 3) {
+            alert("Usuário");
+        } else {
+            box2.innerHTML = "Ops! Faça um cadastro"; //imprimindo na tela
+        }
+
+        //ternário ? = if  e : = else
+        nivel >= 4 ? alert("Sem cadastro!") : alert("Seja Bem Vindo!");
+
+        //switch case
+        switch (nivel) {
+            case 1:
+                box2.className = "bemVindo";
+                box2.innerHTML = "<p>Olá Administrador</p>";
+                break;
+            case 2:
+                box2.className = "bemVindo";
+                box2.innerHTML = "<p>Olá Editor</p>";
+                break;
+            case 3:
+                box2.className = "bemVindo";
+                box2.innerHTML = "<p>Olá Usuário</p>";
+                break;
+            default:
+                box2.className = "alerta";
+                box2.innerHTML = "<p> Você não possui cadastro! Registre-se </p>";
+                break;
+        }
+
+    </script>
+</body>
+
+</html>
