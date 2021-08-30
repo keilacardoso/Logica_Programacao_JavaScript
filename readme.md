@@ -8,7 +8,7 @@ Tomadas de decisão;
 Acessando elementos html (DOM).
 
 ## Aula 2
-Na aula 1 através da tag <script> é demonstrado como cria funções e seus parâmetros.
+Na aula 2 através da tag <script> é demonstrado como cria funções e seus parâmetros.
 
 ### Cada parte do código possui comentários explicando cada processo.
 
